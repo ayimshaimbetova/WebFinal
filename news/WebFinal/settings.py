@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     "articles.apps.ArticlesConfig",
     "pages.apps.PagesConfig",  
     "crispy_forms", 
-    "crispy_bootstrap5", 
+    "crispy_bootstrap5",
+    "rest_framework",  
+    "apis.apps.ApisConfig", 
     
 
 ]

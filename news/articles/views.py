@@ -84,9 +84,11 @@ class CommentPost(SingleObjectMixin, FormView):
     def form_valid(self, form):
         comment = form.save(commit=False)
         comment.article = self.object
+        comment.author = self.request.user
         comment.save()
         return super().form_valid(form)
-
+    
+    
     def get_success_url(self):
         article = self.get_object()
         return reverse("article_detail", kwargs={"pk": article.pk})

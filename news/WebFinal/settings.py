@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "rest_framework",  
     "apis.apps.ApisConfig", 
+    "corsheaders", 
     
 
 ]
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware", 
 ]
 
 ROOT_URLCONF = 'WebFinal.urls'
@@ -138,3 +140,16 @@ LOGOUT_REDIRECT_URL = "home"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # new
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+REST_FRAMEWORK = { 
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated", 
+    ],
+}
+
+CORS_ORIGIN_WHITELIST = (
+"http://localhost:3000",
+"http://localhost:8000",
+)
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"] 
